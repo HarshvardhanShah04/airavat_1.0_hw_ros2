@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot name="airavat1.0" xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+  <!-- LiDAR properties -->
+  <xacro:property name="lidar_diameter" value="0.06" />
+  <xacro:property name="lidar_height" value="0.016" />
+  <xacro:property name="lidar_mass" value="0.075" />
+
+  <xacro:property name="lidar_base_diameter" value="0.072" />
+  <xacro:property name="lidar_base_height" value="0.08" />
+  <xacro:property name="lidar_base_mass" value="0.050" />
+
+  <!-- LiDAR Base Link -->
+  <link name="lidar_base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${lidar_base_diameter/2}" length="${lidar_base_height}" />
+      </geometry>
+      <material name="gray">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${lidar_base_diameter/2}" length="${lidar_base_height}" />
+      </geometry>
+    </collision>
+    <xacro:wheel_inertia m="${lidar_base_mass}" rad="${lidar_base_diameter/2}" length="${lidar_base_height}" o_xyz="0 0 0" o_rpy="0 0 0" />
+  </link>
+
+  <!-- Joint connecting base_link to lidar_base -->
+  <joint name="base_lidar_base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_base" />
+    <origin xyz="-0.08 0 ${ch_height/2 + lidar_base_height/2}" rpy="0 0 0" />
+  </joint>
+
+  <!-- LiDAR Link -->
+  <link name="lidar_frame">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${lidar_diameter/2}" length="${lidar_height}"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${lidar_diameter/2}" length="${lidar_height}"/>
+      </geometry>
+    </collision>
+    <xacro:wheel_inertia m="${lidar_mass}" rad="${lidar_diameter/2}" length="${lidar_height}" o_xyz="0 0 0" o_rpy="0 0 0" />
+  </link>
+
+  <!-- Joint connecting lidar_base to laser_frame -->
+  <joint name="lidar_joint" type="fixed">
+    <parent link="lidar_base" />
+    <child link="lidar_frame" />
+    <origin xyz="0 0 ${lidar_base_height/2 + lidar_height/2}" rpy="0 0 0" />
+  </joint>
+
+</robot>

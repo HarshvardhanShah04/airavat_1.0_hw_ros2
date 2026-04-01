@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="airavat_1.0" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <gazebo>
+        <plugin
+            filename="libgz-sim-diff-drive-system.so"
+            name="gz::sim::systems::DiffDrive">
+            <left_joint>ch_wheel_FL</left_joint>
+            <left_joint>ch_wheel_RL</left_joint>
+            <right_joint>ch_wheel_FR</right_joint>
+            <right_joint>ch_wheel_RR</right_joint>
+            <wheel_separation>${trackwidth}</wheel_separation>
+            <wheel_radius>${wh_diameter/2}</wheel_radius>
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_footprint</child_frame_id>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin 
+            filename="libgz-sim-joint-state-publisher-system.so"
+            name="gz::sim::systems::JointStatePublisher">
+            <joint_name>ch_wheel_FL</joint_name>
+            <joint_name>ch_wheel_FR</joint_name>
+            <joint_name>ch_wheel_RL</joint_name>
+            <joint_name>ch_wheel_RR</joint_name>
+        </plugin>
+    </gazebo>
+
+</robot>

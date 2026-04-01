@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<robot name="airavat1.0" xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+    <xacro:property name="ch_length" value="0.264" />
+    <xacro:property name="ch_width" value="0.195" />
+    <xacro:property name="ch_height" value="0.002" />
+
+    <xacro:property name="wh_width" value="0.0395" />
+    <xacro:property name="wh_diameter" value="0.07" />
+
+    <xacro:property name="wh_ch_dist" value = "0.007" />
+    <xacro:property name="wh_ch_offset" value = "0.018" />
+
+    <xacro:property name="wheelbase" value ="0.135" />
+    <xacro:property name="trackwidth" value = "0.255" />
+
+    <xacro:property name="ch_mass" value = "0.9" />
+    <xacro:property name="wh_mass" value = "0.04" />
+    
+    <xacro:macro name="wheel_link" params="prefix">
+        <link name="wheel_${prefix}">
+            <visual>
+                <geometry>
+                    <cylinder radius = "${wh_diameter/2}" length = "${wh_width}" />
+                </geometry>
+                <origin xyz ="0 0 0" rpy = "${pi/2.0} 0 0" />
+                <material name = "blrubber" />
+            </visual>
+            <collision>
+                <geometry>
+                    <sphere radius = "${wh_diameter/2}" />
+                </geometry>
+                <origin xyz ="0 0 0" rpy = "${pi/2} 0 0" />
+            </collision>
+            <xacro:wheel_inertia m="${wh_mass}" rad="${wh_diameter/2}" length="${wh_width}" o_xyz="0 0 0" o_rpy="${pi/2.0} 0 0" />
+        </link>
+    </xacro:macro>
+
+    <link name="base_footprint">
+        <inertial>
+            <mass value = "0.01" />
+            <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </inertial>
+    </link>
+
+    <joint name="base_joint" type = "fixed">
+        <parent link = "base_footprint" />
+        <child link = "base_link" />
+        <origin xyz = "0 0 ${wh_diameter/2 + wh_ch_offset + ch_height/2}" rpy = "0 0 0" />
+    </joint>
+
+    <link name = "base_link">
+        <visual>
+            <geometry>
+                <box size = "${ch_length} ${ch_width} ${ch_height}" />
+            </geometry>
+            <origin xyz = "0 0 0" rpy = "0 0 0" />
+            <material name="steel" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${ch_length} ${ch_width} ${ch_height}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <xacro:box_inertia m="${ch_mass}" x="${ch_length}" y="${ch_width}" z="${ch_height}" o_xyz="0 0 0" o_rpy="0 0 0" />
+    </link>
+
+    <gazebo reference="base_link">
+        <disable_link_lumping>true</disable_link_lumping>
+    </gazebo>
+
+
+    <xacro:wheel_link prefix="FL" />
+    <xacro:wheel_link prefix="FR" />
+    <xacro:wheel_link prefix="RR" />
+    <xacro:wheel_link prefix="RL" />
+
+
+    <joint name = "ch_wheel_FL" type = "continuous" >
+        <parent link = "base_link" />
+        <child link = "wheel_FL" />
+        <axis xyz = "0 1 0" />
+        <origin xyz = "${wheelbase/2} ${trackwidth/2} -${ch_height/2 + wh_ch_offset}" rpy = "0 0 0" />
+    </joint>
+
+    <joint name = "ch_wheel_FR" type = "continuous" >
+        <parent link = "base_link" />
+        <child link = "wheel_FR" />
+        <axis xyz = "0 1 0" />
+        <origin xyz = "${wheelbase/2} -${trackwidth/2} -${ch_height/2 + wh_ch_offset}" rpy = "0 0 0" />
+    </joint>
+
+    <joint name = "ch_wheel_RR" type = "continuous" >
+        <parent link = "base_link" />
+        <child link = "wheel_RR" />
+        <axis xyz = "0 1 0" />
+        <origin xyz = "-${wheelbase/2} -${trackwidth/2} -${ch_height/2 + wh_ch_offset}" rpy = "0 0 0" />
+    </joint>
+
+    <joint name = "ch_wheel_RL" type = "continuous" >
+        <parent link = "base_link" />
+        <child link = "wheel_RL" />
+        <axis xyz = "0 1 0" />
+        <origin xyz = "-${wheelbase/2} ${trackwidth/2} -${ch_height/2 + wh_ch_offset}" rpy = "0 0 0" />
+    </joint>
+
+</robot>

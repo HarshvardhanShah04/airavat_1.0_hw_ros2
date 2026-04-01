@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot name="airavat_1.0" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="my_airavat_1.0_common_prop.xacro"/>
+    <xacro:include filename="my_airavat_1.0_base.xacro"/>
+    <xacro:include filename="my_airavat_1.0_gazebo.xacro"/>
+    <xacro:include filename="imu.xacro" />
+    <xacro:include filename="lidar.xacro" />
+
+
+</robot>

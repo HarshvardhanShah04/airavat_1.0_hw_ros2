@@ -1,0 +1,29 @@
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0
+    sensor_timeout: 0.1
+    two_d_mode: true
+    base_link_frame: base_footprint  
+    odom_frame: odom
+    world_frame: odom
+    
+    # Wheel encoders
+    odom0: /wheel/odom  
+    odom0_config: [true,  true,  false,    # fuse x, y position
+                   false, false, true,     # fuse yaw orientation
+                   true,  true,  false,    # fuse vx, vy velocity
+                   false, false, true,     # fuse yaw rate (omega)
+                   false, false, false]    # no acceleration from odometry
+    odom0_differential: false
+    odom0_relative: false
+    
+    # IMU (BNO055)
+    imu0: /imu/data
+    imu0_config: [false, false, false,
+                  false, false, false,
+                  false, false, false,
+                  true,  true,  true,      # gyro
+                  true,  true,  false]     # accel (x, y only)
+    imu0_remove_gravitational_acceleration: true
+    imu0_differential: false
+    imu0_relative: false

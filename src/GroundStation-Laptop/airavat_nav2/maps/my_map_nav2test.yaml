@@ -1,0 +1,6 @@
+image: /home/harsh/airavat_1.0_hw_ros2/src/GroundStation-Laptop/airavat_nav2/maps/my_map_nav2test.pgm
+resolution: 0.05
+origin: [-2.21, -4.45, 0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.25
