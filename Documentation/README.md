@@ -4,7 +4,7 @@ Link to presentation **Airavat 1.0**:
 
 <p align="center">
   <a href="https://pdpuacin-my.sharepoint.com/:p:/g/personal/23bme005_pdpu_ac_in/IQChsz3eY3VvR4gFlXudYxSFAX_xw7OShsRYDFWDMRPfu04?e=MHm1KI">
-    <img src="/assets/slide1.jpg" width="75%" alt="Airavat Presentation"/>
+    <img src="assets/slide1.jpg" width="75%" alt="Airavat Presentation"/>
   </a>
 </p>
 
@@ -17,7 +17,7 @@ Link to presentation **Airavat 1.0**:
 ###  System Architecture
 
 <p align="center">
-  <img src="/assets/slide5.jpg" width="75%" alt="System Architecture"/>
+  <img src="assets/slide5.jpg" width="75%" alt="System Architecture"/>
 </p>
 
 - 14.8V battery stepped down to 12V for power distribution  
@@ -32,7 +32,7 @@ Link to presentation **Airavat 1.0**:
 ###  SLAM (Mapping)
 
 <p align="center">
-  <img src="/assets/slide8.jpg" width="75%" alt="SLAM Mapping"/>
+  <img src="assets/slide8.jpg" width="75%" alt="SLAM Mapping"/>
 </p>
 
 ---
@@ -40,7 +40,7 @@ Link to presentation **Airavat 1.0**:
 ###  Navigation Pipeline (ROS 2)
 
 <p align="center">
-  <img src="/assets/slide9.jpg" width="75%" alt="Navigation Pipeline"/>
+  <img src="assets/slide9.jpg" width="75%" alt="Navigation Pipeline"/>
 </p>
 
 - Map used for localization and path planning  
@@ -53,7 +53,7 @@ Link to presentation **Airavat 1.0**:
 ### ⚙️ Control System
 
 <p align="center">
-  <img src="/assets/slide10.jpg" width="75%" alt="Control System"/>
+  <img src="assets/slide10.jpg" width="75%" alt="Control System"/>
 </p>
 
 - Encoder-based closed-loop control  
