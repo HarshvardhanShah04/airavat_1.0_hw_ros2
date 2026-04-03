@@ -32,7 +32,7 @@ Link to presentation **Airavat 1.0**:
 ###  SLAM (Mapping)
 
 <p align="center">
-  <img src="assets/Slide8.jpg" width="75%" alt="SLAM Mapping"/>
+  <img src="assets/Slide7.jpg" width="75%" alt="SLAM Mapping"/>
 </p>
 
 ---
@@ -40,7 +40,7 @@ Link to presentation **Airavat 1.0**:
 ###  Navigation Pipeline (ROS 2)
 
 <p align="center">
-  <img src="assets/Slide9.jpg" width="75%" alt="Navigation Pipeline"/>
+  <img src="assets/Slide8.jpg" width="75%" alt="Navigation Pipeline"/>
 </p>
 
 - Map used for localization and path planning  
