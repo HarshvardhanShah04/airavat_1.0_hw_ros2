@@ -89,6 +89,7 @@ Non-essential files such as logs, cache files, and backups have been excluded fo
 
 ##  Author
 
-Harsh
-Robotics | ROS 2 | Autonomous Systems
+Harshvardhan Shah  
+Team Kaizen, PDEU
+
 
