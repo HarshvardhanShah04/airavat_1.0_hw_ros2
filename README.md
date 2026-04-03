@@ -1,13 +1,11 @@
 # 🚀 Airavat 1.0 — Autonomous Rover (ROS 2)
 
-Airavat 1.0 is a ROS 2-based autonomous ground rover that demonstrates a complete pipeline from hardware-level sensing (Raspberry Pi) to autonomous navigation (SLAM + Nav2) on a ground station.
-
-It showcases how raw sensor data is transformed into
-state estimation → mapping → localization → navigation.
+Airavat 1.0 is a ROS 2-based autonomous ground rover that demonstrates a complete pipeline from hardware-level sensing (Raspberry Pi) to autonomous navigation (SLAM + Nav2) on a ground station.  
+Airavat was started as to validated our learnings and the software stack. I preferred a sim to real pipeline and this is the final hardware implementation of the airavat_1.0_sim_ros2.
 
 ---
 
-## 🧠 What This Project Covers
+## What This Project Covers
 
 * Sensor data acquisition (IMU + wheel encoders)
 * Odometry estimation
@@ -18,7 +16,7 @@ state estimation → mapping → localization → navigation.
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ### Rover (Raspberry Pi)
 
